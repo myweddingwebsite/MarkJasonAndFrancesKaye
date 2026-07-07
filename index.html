@@ -162,6 +162,7 @@
     background:linear-gradient(135deg, var(--lilac-soft), var(--pink-soft), var(--blue-soft));
     display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem;
   }
+  .detail-photo img{ width:100%; height:100%; object-fit:cover; }
   .detail-tag{ font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;}
   .detail-name{ font-size:1.5rem; margin-bottom:10px; }
   .detail-addr{ color:var(--ink-soft); line-height:1.7; margin-bottom:22px; font-size:0.95rem;}
@@ -197,6 +198,11 @@
   .ent-list{ list-style:none; text-align:center; }
   .ent-list li{ padding:5px 0; font-size:0.95rem; color:var(--ink); }
   .ent-list li + li{ border-top:1px dashed rgba(140,110,160,0.18); }
+  .ent-list.two-col{
+    display:grid; grid-template-columns:1fr 1fr; gap:2px 14px; text-align:center;
+  }
+  .ent-list.two-col li{ border-top:none; padding:6px 0; }
+  .ent-list.two-col li:nth-child(-n+2){ padding-top:0; }
 
   /* ---------- attire ---------- */
   .attire-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
@@ -238,7 +244,8 @@
   .gift-msg{ max-width:640px; margin:0 auto 40px; font-size:1.08rem; line-height:1.9; color:var(--ink); font-style:italic; font-family:'Cormorant Garamond',serif; }
   .qr-grid{ display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
   .qr-card{ background:rgba(255,255,255,0.7); border-radius:20px; padding:24px; width:190px; }
-  .qr-box{ width:140px; height:140px; margin:0 auto 14px; border-radius:14px; background:repeating-conic-gradient(var(--lilac-soft) 0% 25%, var(--pink-soft) 0% 50%) 0 0/20px 20px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--ink-soft); text-align:center;}
+  .qr-box{ width:140px; height:140px; margin:0 auto 14px; border-radius:14px; background:#fff; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--ink-soft); text-align:center; overflow:hidden; padding:6px;}
+  .qr-box img{ width:100%; height:100%; object-fit:contain; }
   .qr-name{ font-size:0.95rem; color:var(--gold); font-weight:500; }
 
   /* ---------- faq ---------- */
@@ -267,6 +274,8 @@
 
   /* ---------- footer ---------- */
   footer{ text-align:center; padding:60px 20px 50px; color:var(--ink-soft); font-size:0.85rem; }
+  .footer-names{ font-family:'Alex Brush',cursive; font-size:2.1rem; color:var(--ink); line-height:1.2; margin-bottom:8px; }
+  .footer-date{ font-family:'Cormorant Garamond',serif; letter-spacing:0.08em; color:var(--gold); font-size:1.05rem; margin-bottom:18px; }
   footer a{ color:var(--gold); font-weight:500; border-bottom:1px solid var(--gold-soft); }
   .footer-hashtag{ margin-top:8px; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold); font-size:1rem;}
 
@@ -287,8 +296,8 @@
       <li><a href="#attire" data-nav>Attire</a></li>
       <li><a href="#gallery" data-nav>Gallery</a></li>
       <li><a href="#gifts" data-nav>Gifts</a></li>
-      <li><a href="#faq" data-nav>FAQ</a></li>
       <li><a href="#rsvp" data-nav>RSVP</a></li>
+      <li><a href="#faq" data-nav>FAQ</a></li>
     </ul>
   </div>
 </nav>
@@ -324,14 +333,14 @@
 
   <div class="details-grid">
     <div class="detail-card glass-card reveal">
-      <div class="detail-photo">Ceremony photo</div>
+      <div class="detail-photo"><img src="https://ik.imagekit.io/jcsquo5nq/Mark%20Jason%20and%20frances%20kaye/Our%20lady%20of%20Lourdes%20Parish.png?updatedAt=1783425928344" alt="Our Lady of Lourdes Parish Ocana" loading="lazy"></div>
       <p class="detail-tag">Ceremony</p>
       <h3 class="detail-name">Our Lady of Lourdes Parish Ocana</h3>
       <p class="detail-addr">Natalio Bacalso Avenue<br>Carcar City, Cebu 6019</p>
       <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=Our%20Lady%20of%20Lourdes%20Parish%20Ocana%2C%20Natalio%20Bacalso%20Avenue%2C%20Carcar%20City%2C%20Cebu%206019" target="_blank" rel="noopener noreferrer">View on Maps</a>
     </div>
     <div class="detail-card glass-card reveal">
-      <div class="detail-photo">Reception photo</div>
+      <div class="detail-photo"><img src="https://ik.imagekit.io/jcsquo5nq/Mark%20Jason%20and%20frances%20kaye/banika%20hills.jpg?updatedAt=1783425928164" alt="Banika Hillside Event Center" loading="lazy"></div>
       <p class="detail-tag">Reception</p>
       <h3 class="detail-name">Banika Hillside Event Center</h3>
       <p class="detail-addr">Upper Cogon, Poblacion 1<br>Carcar City, Cebu</p>
@@ -367,7 +376,7 @@
   <div class="ent-grid">
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Groom</h3><ul class="ent-list"><li>Mr. Wilson Laput</li><li>Mrs. Agnes Laput</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Bride</h3><ul class="ent-list"><li>Mr. Francis Abad</li><li>Ms. Ma. Charlene Pantoras</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Principal Sponsors</h3><ul class="ent-list"><li>Hon. Gwendolyn Claracay</li><li>Hon. Dario Ramos</li><li>Mrs. Violeta Batulan</li><li>Mr. Elizar Batulan</li><li>Hon. Marlyn Olmillo</li><li>Mrs. Mhedeen Verano</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Principal Sponsors</h3><ul class="ent-list two-col"><li>Hon. Gwendolyn Claracay</li><li>Hon. Dario Ramos</li><li>Mrs. Violeta Batulan</li><li>Mr. Elizar Batulan</li><li>Hon. Marlyn Olmillo</li><li>Mrs. Mhedeen Verano</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Best Men</h3><ul class="ent-list"><li>John King Adrian Laput</li><li>Prince Kikenne Repollo</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Maids of Honor</h3><ul class="ent-list"><li>Princess Kate Labra</li><li>Pepito Arcay</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Groomsmen</h3><ul class="ent-list"><li>Nico Jean Aliviano</li><li>John Louie Ravanes</li><li>Gelo Guiritan</li><li>Jarm Solar</li><li>Jordan Rosalita</li></ul></div>
@@ -456,8 +465,6 @@
   </div>
 </section>
 
-
-
 <!-- ===================== GIFTS ===================== -->
 <section id="gifts" aria-labelledby="gifts-title">
   <p class="eyebrow reveal">With Love</p>
@@ -467,11 +474,11 @@
     <p class="gift-msg">Your love, prayers, and presence on our special day are the greatest gift we could ask for. Should you wish to bless us further, a monetary gift would be deeply appreciated and will be thoughtfully used as we begin this new chapter together and build a meaningful future.</p>
     <div class="qr-grid">
       <div class="qr-card glass-card">
-        <div class="qr-box">Maya QR placeholder</div>
+        <div class="qr-box"><img src="https://ik.imagekit.io/jcsquo5nq/Mark%20Jason%20and%20frances%20kaye/maya.jpg?updatedAt=1783425928218" alt="Maya QR code" loading="lazy"></div>
         <p class="qr-name">Maya</p>
       </div>
       <div class="qr-card glass-card">
-        <div class="qr-box">MariBank QR placeholder</div>
+        <div class="qr-box"><img src="https://ik.imagekit.io/jcsquo5nq/Mark%20Jason%20and%20frances%20kaye/Maribank.jpg?updatedAt=1783425928121" alt="MariBank QR code" loading="lazy"></div>
         <p class="qr-name">MariBank</p>
       </div>
     </div>
@@ -488,6 +495,7 @@
     <iframe class="rsvp-frame" src="https://script.google.com/macros/s/AKfycbwt-ar__vq5Z1FriZdqExoe49Acd-Jnt7VMYNs-mR_8SD1ZeJZ0eAphin4zYNfaGpjEwQ/exec" title="RSVP Form" loading="lazy"></iframe>
   </div>
 </section>
+
 <!-- ===================== FAQ ===================== -->
 <section id="faq" aria-labelledby="faq-title">
   <p class="eyebrow reveal">Good to Know</p>
@@ -513,8 +521,10 @@
     </div>
   </div>
 </section>
-  
+
 <footer>
+  <p class="footer-names">Mark Jason and<br>Frances Kaye</p>
+  <p class="footer-date">September 26, 2026</p>
   <p>Created with ❤️ by <a href="https://www.tiktok.com/@loveanne.ph" target="_blank" rel="noopener noreferrer">Love, Anne</a></p>
 </footer>
 
