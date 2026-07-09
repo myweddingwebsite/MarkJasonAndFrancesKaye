@@ -269,8 +269,61 @@
   .faq-item.open .faq-a{ max-height:260px; padding:0 26px 24px; }
 
   /* ---------- rsvp ---------- */
-  .rsvp-wrap{ border-radius:28px; overflow:hidden; box-shadow:var(--shadow-soft); border:1px solid var(--glass-border); background:#fff; }
-  .rsvp-frame{ width:100%; height:900px; border:none; display:block; max-width:100%; }
+  /* RSVP Button */
+.rsvp-wrap{
+  padding:70px 30px;
+  text-align:center;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+}
+
+.rsvp-button-wrap{
+  max-width:500px;
+  margin:auto;
+}
+
+.rsvp-text{
+  color:var(--ink-soft);
+  font-size:1rem;
+  line-height:1.8;
+  margin-bottom:28px;
+}
+
+.btn-rsvp{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 42px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#fff;
+  font-size:.85rem;
+  font-weight:500;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.35s ease;
+  box-shadow:0 12px 28px -8px rgba(201,166,107,.45);
+}
+
+.btn-rsvp:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 34px -10px rgba(201,166,107,.55);
+}
+
+.btn-rsvp:active{
+  transform:translateY(-1px);
+}
+
+@media (max-width:768px){
+  .rsvp-wrap{
+    padding:50px 22px;
+  }
+
+  .btn-rsvp{
+    width:100%;
+    max-width:320px;
+  }
+}
 
   /* ---------- footer ---------- */
   footer{ text-align:center; padding:60px 20px 50px; color:var(--ink-soft); font-size:0.85rem; }
@@ -491,9 +544,21 @@
   <h2 class="section-title reveal" id="rsvp-title">RSVP</h2>
   <p class="section-sub reveal">Please let us know if you'll be joining us — we'd love to celebrate with you.</p>
 
-  <div class="rsvp-wrap reveal">
-    <iframe class="rsvp-frame" src="https://script.google.com/macros/s/AKfycbwt-ar__vq5Z1FriZdqExoe49Acd-Jnt7VMYNs-mR_8SD1ZeJZ0eAphin4zYNfaGpjEwQ/exec" title="RSVP Form" loading="lazy"></iframe>
+ <div class="rsvp-wrap glass-card reveal">
+  <div class="rsvp-button-wrap">
+    <p class="rsvp-text">
+      Kindly click the button below to submit your RSVP.
+    </p>
+
+    <a
+      href="https://script.google.com/macros/s/AKfycbwt-ar__vq5Z1FriZdqExoe49Acd-Jnt7VMYNs-mR_8SD1ZeJZ0eAphin4zYNfaGpjEwQ/exec"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-rsvp">
+      RSVP NOW
+    </a>
   </div>
+</div>
 </section>
 
 <!-- ===================== FAQ ===================== -->
