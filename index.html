@@ -153,6 +153,18 @@
     box-shadow:var(--shadow-soft);
   }
 
+  /* ---------- love story ---------- */
+  .story-quote{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.1rem,2.6vw,1.4rem); color:var(--gold); max-width:640px; margin:-24px auto 50px; line-height:1.6; }
+  .story-list{ max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
+  .story-chapter{ padding:32px 30px; }
+  .story-date{ font-family:'Jost',sans-serif; color:var(--gold); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px; }
+  .story-title{ font-size:1.5rem; margin-bottom:14px; }
+  .story-text p{ color:var(--ink-soft); line-height:1.9; font-size:0.96rem; margin-bottom:12px; }
+  .story-text p:last-child{ margin-bottom:0; }
+  .story-verse{ text-align:center; margin-top:56px; }
+  .story-verse-text{ font-family:'Alex Brush',cursive; font-size:clamp(1.5rem,4vw,2rem); color:var(--gold); line-height:1.4; }
+  .story-verse-ref{ display:block; font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin-top:12px; }
+
   /* ---------- details ---------- */
   .details-grid{ display:grid; grid-template-columns:1fr 1fr; gap:34px; }
   @media (max-width:760px){ .details-grid{ grid-template-columns:1fr; } }
@@ -196,13 +208,15 @@
   .ent-card{ padding:28px 24px; }
   .ent-title{ font-size:1.15rem; text-align:center; margin-bottom:16px; color:var(--gold); font-style:italic; }
   .ent-list{ list-style:none; text-align:center; }
-  .ent-list li{ padding:5px 0; font-size:0.95rem; color:var(--ink); }
-  .ent-list li + li{ border-top:1px dashed rgba(140,110,160,0.18); }
+  .ent-list li{ padding:6px 4px; font-size:0.95rem; color:var(--ink); line-height:1.55; }
   .ent-list.two-col{
-    display:grid; grid-template-columns:1fr 1fr; gap:2px 14px; text-align:center;
+    display:grid; grid-template-columns:1fr 1fr; gap:10px 12px; text-align:center;
   }
-  .ent-list.two-col li{ border-top:none; padding:6px 0; }
-  .ent-list.two-col li:nth-child(-n+2){ padding-top:0; }
+  .ent-list.two-col li{ padding:4px 2px; font-size:0.82rem; line-height:1.45; }
+  @media (max-width:480px){
+    .ent-list.two-col li{ font-size:0.72rem; }
+    .ent-card{ padding:24px 16px; }
+  }
 
   /* ---------- attire ---------- */
   .attire-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
@@ -269,61 +283,15 @@
   .faq-item.open .faq-a{ max-height:260px; padding:0 26px 24px; }
 
   /* ---------- rsvp ---------- */
-  /* RSVP Button */
-.rsvp-wrap{
-  padding:70px 30px;
-  text-align:center;
-  background:rgba(255,255,255,0.75);
-  backdrop-filter:blur(16px);
-}
-
-.rsvp-button-wrap{
-  max-width:500px;
-  margin:auto;
-}
-
-.rsvp-text{
-  color:var(--ink-soft);
-  font-size:1rem;
-  line-height:1.8;
-  margin-bottom:28px;
-}
-
-.btn-rsvp{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:16px 42px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
-  color:#fff;
-  font-size:.85rem;
-  font-weight:500;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  transition:.35s ease;
-  box-shadow:0 12px 28px -8px rgba(201,166,107,.45);
-}
-
-.btn-rsvp:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 34px -10px rgba(201,166,107,.55);
-}
-
-.btn-rsvp:active{
-  transform:translateY(-1px);
-}
-
-@media (max-width:768px){
-  .rsvp-wrap{
-    padding:50px 22px;
-  }
-
+  .rsvp-box{ max-width:560px; margin:0 auto; text-align:center; padding:50px 34px; }
+  .rsvp-msg{ color:var(--ink-soft); line-height:1.8; margin-bottom:30px; font-size:1rem; }
   .btn-rsvp{
-    width:100%;
-    max-width:320px;
+    display:inline-flex; align-items:center; gap:10px; padding:16px 44px; border-radius:999px;
+    background:linear-gradient(135deg, var(--gold), var(--gold-soft)); color:#fff; font-size:0.9rem;
+    letter-spacing:0.14em; text-transform:uppercase; box-shadow:0 14px 30px -10px rgba(201,166,107,0.6);
+    transition:transform .3s ease, box-shadow .3s ease;
   }
-}
+  .btn-rsvp:hover{ transform:translateY(-3px); box-shadow:0 20px 36px -10px rgba(201,166,107,0.7); }
 
   /* ---------- footer ---------- */
   footer{ text-align:center; padding:60px 20px 50px; color:var(--ink-soft); font-size:0.85rem; }
@@ -343,6 +311,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero" data-nav>Home</a></li>
+      <li><a href="#story" data-nav>Our Story</a></li>
       <li><a href="#details" data-nav>Details</a></li>
       <li><a href="#timeline" data-nav>Timeline</a></li>
       <li><a href="#entourage" data-nav>Entourage</a></li>
@@ -377,6 +346,97 @@
 
   <div class="scroll-indicator"><span>Scroll</span><span class="line"></span></div>
 </header>
+
+<!-- ===================== LOVE STORY ===================== -->
+<section id="story" aria-labelledby="story-title">
+  <p class="eyebrow reveal">How It Began</p>
+  <h2 class="section-title reveal" id="story-title">Our Love Story</h2>
+  <p class="story-quote reveal">"What started as a random chat became God's perfect plan."</p>
+
+  <div class="story-list">
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">August 4, 2023</p>
+      <h3 class="story-title">A Random Hello</h3>
+      <div class="story-text">
+        <p>People say love finds you when you least expect it, and that's exactly how our story began. One ordinary day, I decided to try my luck on Omegle. I wasn't expecting anything serious, just another random conversation with a stranger.</p>
+        <p>Then, I met him. From our very first conversation, something felt different. My first thought was, "Lahi siya sa uban." Instead of asking the usual questions, he was more concerned about me. He reminded me not to drink too much and encouraged me to go home early. Such simple words, yet they carried genuine care.</p>
+        <p>For the first time, I met someone who made me feel safe even through a screen. We exchanged Instagram accounts and continued talking there.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">Days Later</p>
+      <h3 class="story-title">The Question That Changed Everything</h3>
+      <div class="story-text">
+        <p>I've always been the type of person who values clarity. "Sigurista na, dili na ganahan og duwa-duwa." I've experienced enough to know that I didn't want a relationship without purpose.</p>
+        <p>So, just one day after we chatted, I asked him something most people would probably wait months to ask: "Are you interested in me? Because I'm not looking for a relationship just for fun. I'm looking for someone to settle down with." Without hesitation, he answered, "We have the same goal."</p>
+        <p>That simple answer gave me peace. There were no mixed signals, no mind games — just two people being honest about what they were praying for. Looking back now, I realize that our love story began with courage and honesty.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">The Weeks After</p>
+      <h3 class="story-title">Love in the Little Things</h3>
+      <div class="story-text">
+        <p>The days that followed were filled with conversations that seemed endless. We talked about everything — our dreams, our fears, our families, our faith. And slowly, two strangers became each other's favorite person.</p>
+        <p>His actions always spoke louder than his words. He would surprise me by sending food and snacks to my workplace, not because he had to, but because he wanted me to know that he was thinking about me. Those simple gestures reminded me that love isn't always found in grand romantic moments.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">August 11, 2023</p>
+      <h3 class="story-title">Our First Date</h3>
+      <div class="story-text">
+        <p>Finally, the day came when we met in person. Our first date was at Starbucks Ebloc 2, IT Park. To be honest, I was terrified — it was my first time meeting someone I had only known online, and I didn't know what to expect. But the moment we saw each other, everything felt easy.</p>
+        <p>We laughed. We shared stories. We talked about life. We exchanged endless chika and, of course, a little chismis. Hours passed without us even noticing. When I went home, my heart quietly whispered, "Lord... basin siya na gyud ni."</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">September 3, 2023</p>
+      <h3 class="story-title">Our First "Yes"</h3>
+      <div class="story-text">
+        <p>The first Sunday of September became one of the most meaningful days of our lives. Together, we attended Holy Mass at the Basilica Minore del Santo Niño. In the middle of the Mass, I quietly asked him, "What are you praying for?" He smiled and shared his prayer, then asked me the same question.</p>
+        <p>I looked at him and said, "I'm praying that Sto. Niño will continue to guide us as we begin this new chapter of our lives, especially now that we're making our relationship official." It wasn't just the beginning of our relationship — it was the beginning of a relationship built on faith. From that day on, Santo Niño became more than just a church to us. It became a sacred place in our love story, a place where we entrusted our relationship to God.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">October 28–29, 2023</p>
+      <h3 class="story-title">Becoming a Family</h3>
+      <div class="story-text">
+        <p>Falling in love wasn't only about the two of us — it was also about the two little hearts that mean the world to me. As a mother, introducing someone to my children wasn't something I took lightly; it was one of the biggest decisions I could ever make.</p>
+        <p>On October 28, I finally introduced him to my two beautiful children, Kiara and Jhaz. At first, they were shy and curious, wondering if he was simply Mama's friend or workmate. But he never forced himself into their hearts. Instead, he patiently spent time with them — laughed with them, played with them, took care of them. And through those little moments, he showed them the same love he had been showing me all along.</p>
+        <p>The next day, we introduced Kiara and Jhaz to his family. Watching them welcome my children with genuine love filled my heart with overwhelming joy. At that moment, I realized something beautiful: God wasn't just writing a love story between two people. He was creating a family.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">August 26, 2026</p>
+      <h3 class="story-title">The Second "Yes"</h3>
+      <div class="story-text">
+        <p>By then, we had already talked countless times about spending the rest of our lives together. We were already planning our future. But he still wanted to give me the proposal every woman dreams of, and he knew exactly where it had to happen.</p>
+        <p>He brought me back to the Basilica Minore del Santo Niño — the very place where I first said "Yes" to becoming his girlfriend. Standing before the same God who had been with us from the beginning, he asked me another life-changing question. This time, he asked me to become his wife. And once again, with tears in my eyes and love in my heart, I said, "Yes."</p>
+        <p>It was a beautiful full-circle moment. The same place that witnessed the beginning of our relationship now witnessed our promise of forever. Santo Niño has been with us from our first "yes" to our forever "yes." For us, it has always been more than a church — it has been a constant reminder that when we put God at the center of our relationship, He faithfully writes every chapter better than we ever could.</p>
+      </div>
+    </div>
+
+    <div class="story-chapter glass-card reveal">
+      <p class="story-date">And Now</p>
+      <h3 class="story-title">Forever</h3>
+      <div class="story-text">
+        <p>Looking back, it's amazing how one random conversation on Omegle became the greatest blessing of our lives. What seemed like coincidence was actually God's perfect timing. He knew exactly when our paths should cross. He knew exactly what our hearts needed. He knew that our story wouldn't just be about finding love — it would be about building a home, creating a family, growing in faith, choosing each other every single day.</p>
+        <p>Today, as we stand before God and everyone we love, we do so with hearts overflowing with gratitude. To our family and friends, thank you for being part of our journey. To Kiara and Jhaz, thank you for filling our lives with love and laughter — you have always been, and always will be, one of God's greatest blessings to us. And to each other: thank you for choosing love, thank you for choosing patience, thank you for choosing forever.</p>
+        <p>Our story began with one unexpected message. Today, by God's grace, it becomes our happily ever after.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-verse reveal">
+    <p class="story-verse-text">"Therefore what God has joined together, let no one separate."</p>
+    <span class="story-verse-ref">— Mark 10:9</span>
+  </div>
+</section>
 
 <!-- ===================== DETAILS ===================== -->
 <section id="details" aria-labelledby="details-title">
@@ -427,19 +487,29 @@
   <p class="section-sub reveal">The beloved family and friends standing beside us as we say "I do."</p>
 
   <div class="ent-grid">
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Groom</h3><ul class="ent-list"><li>Mr. Wilson Laput</li><li>Mrs. Agnes Laput</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Bride</h3><ul class="ent-list"><li>Mr. Francis Abad</li><li>Ms. Ma. Charlene Pantoras</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Principal Sponsors</h3><ul class="ent-list two-col"><li>Hon. Gwendolyn Claracay</li><li>Hon. Dario Ramos</li><li>Mrs. Violeta Batulan</li><li>Mr. Elizar Batulan</li><li>Hon. Marlyn Olmillo</li><li>Mrs. Mhedeen Verano</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Best Men</h3><ul class="ent-list"><li>John King Adrian Laput</li><li>Prince Kikenne Repollo</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Maids of Honor</h3><ul class="ent-list"><li>Princess Kate Labra</li><li>Pepito Arcay</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Groomsmen</h3><ul class="ent-list"><li>Nico Jean Aliviano</li><li>John Louie Ravanes</li><li>Gelo Guiritan</li><li>Jarm Solar</li><li>Jordan Rosalita</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Groom</h3><ul class="ent-list"><li>Mr. Wilson Laput &amp; Mrs. Agnes Laput</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Parents of the Bride</h3><ul class="ent-list"><li>Mr. Francis Abad &amp; Ms. Ma. Charlene Pantoras</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Principal Sponsors</h3><ul class="ent-list two-col">
+      <li>Hon. Gwendolyn Claracay &amp; Hon. Dario Ramos</li>
+      <li>Mrs. Violeta Batulan &amp; Mr. Elizar Batulan</li>
+      <li>Hon. Marlyn Olmillo &amp; Mr. Anecito Olmillo</li>
+      <li>Mrs. Mhedeen Verano &amp; Mr. Carlino Verano</li>
+      <li>Mrs. Maria Margarita Priestly &amp; Mr. Wilfredo Aliviano</li>
+      <li>Mrs. Riza Gantuangco &amp; Mr. Israel Gantuangco</li>
+      <li>Mrs. Trinidad Tohay &amp; Mr. Jone Keneto Tohay</li>
+      <li>Mrs. Leah Zapata &amp; Mr. Manolito Zapata</li>
+      <li>Hon. Luzminda Lapitan &amp; Mr. Elmer Lapitan</li>
+    </ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Best Man</h3><ul class="ent-list"><li>John King Adrian Laput &amp; Prince Kikenne Repollo</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Maid of Honor</h3><ul class="ent-list"><li>Princess Kate Labra &amp; Pepito Arcay</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Groomsmen</h3><ul class="ent-list"><li>Nico Jean Aliviano</li><li>John Louie Ravanes</li><li>Gelo Guiritan</li><li>Jordan Rosalita</li><li>Jarm Solar</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Bridesmaids</h3><ul class="ent-list"><li>Casey Miranda</li><li>Jheah Tampus</li><li>Jessa Mae Daroy</li><li>Beverly Ann Palangan</li><li>Mayflor Gentapa</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Candle Sponsors</h3><ul class="ent-list"><li>Mrs. Ann Jamine Tandingan</li><li>Mr. Jesther Tandingan</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Veil Sponsors</h3><ul class="ent-list"><li>Mrs. Meah Pilapil</li><li>Mr. James Pilapil</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Cord Sponsors</h3><ul class="ent-list"><li>Mrs. Leah Zapata</li><li>Mr. Manolito Zapata</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Flower Girls</h3><ul class="ent-list"><li>Angel Gabriel Molina</li><li>Hannah Jane Nacion</li><li>Louisa Estrebillo</li><li>Margaret Basnillio</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Candle Sponsors</h3><ul class="ent-list"><li>Mrs. Ann Jamine Tandingan &amp; Mr. Jesther Tandingan</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Veil Sponsors</h3><ul class="ent-list"><li>Mrs. Meah Pilapil &amp; Mr. James Pilapil</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Cord Sponsors</h3><ul class="ent-list"><li>Ms. Gwyn Laput &amp; Mr. Hardy Eredia</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Flower Girl</h3><ul class="ent-list"><li>Angel Gabriel Molina</li><li>Hannah Jane Nacion</li><li>Loisa Gail E. Lubaton</li><li>Margaret Basnillio</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Bible Bearer</h3><ul class="ent-list"><li>Prince Matthew Labra</li></ul></div>
-    <div class="ent-card glass-card reveal"><h3 class="ent-title">Coin Bearer</h3><ul class="ent-list"><li>Hanley Guiritan</li></ul></div>
+    <div class="ent-card glass-card reveal"><h3 class="ent-title">Coin Bearer</h3><ul class="ent-list"><li>Paul Hanley Guiritan</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Ring Bearer</h3><ul class="ent-list"><li>Jhazken Vergel</li></ul></div>
     <div class="ent-card glass-card reveal"><h3 class="ent-title">Banner Bearer &amp; Little Bride</h3><ul class="ent-list"><li>Jhazmine Kiara</li></ul></div>
   </div>
@@ -544,21 +614,10 @@
   <h2 class="section-title reveal" id="rsvp-title">RSVP</h2>
   <p class="section-sub reveal">Please let us know if you'll be joining us — we'd love to celebrate with you.</p>
 
- <div class="rsvp-wrap glass-card reveal">
-  <div class="rsvp-button-wrap">
-    <p class="rsvp-text">
-      Kindly click the button below to submit your RSVP.
-    </p>
-
-    <a
-      href="https://script.google.com/macros/s/AKfycbwt-ar__vq5Z1FriZdqExoe49Acd-Jnt7VMYNs-mR_8SD1ZeJZ0eAphin4zYNfaGpjEwQ/exec"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-rsvp">
-      RSVP NOW
-    </a>
+  <div class="rsvp-box glass-card reveal">
+    <p class="rsvp-msg">Please take a moment to let us know if you'll be joining us — we'd love to celebrate this special day with you.</p>
+    <a class="btn-rsvp" href="https://script.google.com/macros/s/AKfycbwt-ar__vq5Z1FriZdqExoe49Acd-Jnt7VMYNs-mR_8SD1ZeJZ0eAphin4zYNfaGpjEwQ/exec" target="_blank" rel="noopener noreferrer">RSVP Now</a>
   </div>
-</div>
 </section>
 
 <!-- ===================== FAQ ===================== -->
